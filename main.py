@@ -1,14 +1,23 @@
-from random import randint
+import random as rnd
 
-N = 10
-a = []
-for i in range(N):
-    a.append(randint(1, 99))
-print(a)
+n = int(input())
+list = []
+num = int(input("По возрастанию - 1, по убыванию - 2"))
 
-for i in range(N - 1):
-    for j in range(N - i - 1):
-        if a[j] > a[j + 1]:
-            a[j], a[j + 1] = a[j + 1], a[j]
+for i in range(n):
+    list.append(rnd.randint(1, 99))
+print(list)
 
-print(a)
+if num == 1:
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if list[j] > list[j + 1]:
+                list[j], list[j + 1] = list[j + 1], list[j]
+    print(list)
+else:
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if list[j] > list[j + 1]:
+                list[j], list[j + 1] = list[j + 1], list[j]
+    list.reverse()
+    print(list)
